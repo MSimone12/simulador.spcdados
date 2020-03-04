@@ -1,5 +1,5 @@
 {
-  "name": "simulador_spc_dados",
+  "name": "simulador.spcdados",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
