@@ -23,7 +23,7 @@
     "electron-start": "node src/start-react",
     "react-start": "BROWSER=none react-scripts start",
     "pack": "electron-builder --dir",
-    "dist": "rm -rf dist/ build/ && yarn build && electron-builder -wl",
+    "dist": "rm -rf dist/ build/ && yarn build && electron-builder -lw",
     "postinstall": "electron-builder install-app-deps"
   },
   "homepage": "./",
@@ -50,6 +50,15 @@
   },
   "build": {
     "appId": "spc.brasil.simulador.spcdados",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
     "directories": {
       "buildResources": "public"
     }
