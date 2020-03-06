@@ -7,7 +7,7 @@ import PF from './pages/PF'
 
 import Header from './components/Header'
 
-import { ReactComponent as Logo } from './assets/logo-ms.svg'
+import { ReactComponent as Logo } from './assets/logoms.svg'
 
 const AppGrid = styled.div`
   display: grid;
