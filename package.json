@@ -23,8 +23,9 @@
     "electron-start": "node src/start-react",
     "react-start": "BROWSER=none react-scripts start",
     "pack": "electron-builder --dir",
-    "dist": "rm -rf dist/ build/ && yarn build && electron-builder -lw",
-    "postinstall": "electron-builder install-app-deps"
+    "dist": "yarn clean && yarn build && electron-builder -w",
+    "postinstall": "electron-builder install-app-deps",
+    "clean": "rm -rf dist/ build/"
   },
   "homepage": "./",
   "main": "public/electron.js",
@@ -50,11 +51,9 @@
   },
   "build": {
     "appId": "spc.brasil.simulador.spcdados",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
+    "productName": "Simulador SPC Dados",
     "win": {
+      "artifactName": "${productName}.${ext}",
       "target": [
         "portable"
       ]
