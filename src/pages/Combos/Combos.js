@@ -37,9 +37,11 @@ const CombosWrapper = styled.div`
 `
 
 const ComboPanel = styled(Panel)`
-  margin: 15px;
-  height: 90%;
+  margin: 5px 15px 0;
+  padding: 15px 0;
+  height: 100%;
   min-width: 270px;
+  min-height: 480px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 1fr 10%;
@@ -51,7 +53,7 @@ const ComboPanel = styled(Panel)`
 
 const ComboTitle = styled.span`
   font-weight: 200;
-  font-size: 23px;
+  font-size: 20px;
 `
 
 const ComboListWrapper = styled.div`
@@ -65,6 +67,7 @@ const ComboList = styled.ul`
 
   & > li {
     font-size: 18px;
+    margin: 5px 0 0;
   }
 `
 
@@ -119,7 +122,7 @@ const Combos = ({ combos, children }) => {
                 <ComboList>
                   {combo.attributes.map((attr, i) => (
                     <li key={i}>
-                      {`${format.pf(attr.name)}${attr.quantity ? ` [${attr.quantity}]` : ''}`}
+                      {`${format(attr.name)}${attr.quantity ? ` (${attr.quantity})` : ''}`}
                     </li>
                   ))}
                 </ComboList>

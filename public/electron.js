@@ -9,12 +9,15 @@ const isDev = require('electron-is-dev')
 let mainWindow
 
 function createWindow() {
+  const { height, width } = electron.screen.getPrimaryDisplay().workAreaSize
   mainWindow = new BrowserWindow({
-    height: 768,
-    width: 1024,
-    icon: path.join(__dirname, '../src/assets/logoSPCsquare.png'),
+    width,
+    height,
+    icon: path.join(__dirname, '../public/logoSPC.png'),
     webPreferences: { nodeIntegration: true }
   })
+
+  if (isDev) mainWindow.webContents.openDevTools()
 
   mainWindow.loadURL(
     isDev

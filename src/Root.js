@@ -6,8 +6,11 @@ import { FiArrowLeft } from 'react-icons/fi'
 
 import Profile from './pages/Profile'
 import PF from './pages/PF'
+import PJ from './pages/PJ'
 
+import routes from './constants/routes'
 import Header from './components/Header'
+import ComboDetails from './pages/ComboDetails'
 
 import { ReactComponent as Logo } from './assets/logoms.svg'
 
@@ -67,6 +70,7 @@ const ContentWrapper = styled.div`
   grid-area: content;
   height: 100%;
   width: 100%;
+  overflow-y: hidden;
 `
 
 const BackLink = styled(FiArrowLeft)`
@@ -97,9 +101,10 @@ const Root = () => {
       </TitleWrapper>
       <ContentWrapper>
         <Switch>
-          <Route path="/profile" component={Profile} />
-          <Route path="/pf" component={PF} />
-          <Route path="/pj" component={Profile} />
+          <Route path={routes.PROFILE} component={Profile} />
+          <Route exact path={routes.PF} component={PF} />
+          <Route exact path={routes.PJ} component={PJ} />
+          <Route path={routes.COMBO_DETAILS} component={ComboDetails} />
           <Redirect from="*" to="/profile" />
         </Switch>
       </ContentWrapper>

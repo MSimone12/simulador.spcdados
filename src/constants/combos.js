@@ -73,5 +73,80 @@ export default {
         { name: 'restriction', quantity: 2 }
       ]
     }
+  },
+  pj: {
+    basic: {
+      url: '/pj/basic',
+      title: 'Básico',
+      max: 9,
+      value: 30,
+      attributes: [
+        { name: 'cnpj' },
+        { name: 'companyName' },
+        { name: 'companyFancyName' },
+        { name: 'openingDate' },
+        { name: 'address' },
+        { name: 'email' },
+        { name: 'phoneNumber' },
+        { name: 'cellPhoneNumber' },
+        { name: 'cnae' }
+      ]
+    },
+    intermediate: {
+      url: '/pj/intermediate',
+      title: 'Intermediário',
+      max: 12,
+      value: 95,
+      attributes: [
+        { name: 'cnpj' },
+        { name: 'companyName' },
+        { name: 'companyFancyName' },
+        { name: 'openingDate' },
+        { name: 'address' },
+        { name: 'email' },
+        { name: 'phoneNumber', quantity: 2 },
+        { name: 'cellPhoneNumber', quantity: 2 },
+        { name: 'corporateControl' },
+        { name: 'cnae' }
+      ]
+    },
+    complete: {
+      url: '/pj/complete',
+      title: 'Completo',
+      max: 12,
+      value: 115,
+      attributes: [
+        { name: 'cnpj' },
+        { name: 'companyName' },
+        { name: 'companyFancyName' },
+        { name: 'openingDate' },
+        { name: 'address' },
+        { name: 'email' },
+        { name: 'phoneNumber', quantity: 2 },
+        { name: 'cellPhoneNumber', quantity: 2 },
+        { name: 'cnae' },
+        { name: 'restriction' }
+      ]
+    },
+    master: {
+      url: '/pj/master',
+      title: 'Master',
+      max: 15,
+      value: 740,
+      attributes: [
+        { name: 'cnpj' },
+        { name: 'companyName' },
+        { name: 'companyFancyName' },
+        { name: 'openingDate' },
+        { name: 'address' },
+        { name: 'email' },
+        { name: 'phoneNumber', quantity: 2 },
+        { name: 'cellPhoneNumber', quantity: 2 },
+        { name: 'corporateControl' },
+        { name: 'cnae' },
+        { name: 'presumedBilling' },
+        { name: 'restriction', quantity: 2 }
+      ]
+    }
   }
 }
