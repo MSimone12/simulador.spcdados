@@ -1,6 +1,8 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect, useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+
+import { FiArrowLeft } from 'react-icons/fi'
 
 import Profile from './pages/Profile'
 import PF from './pages/PF'
@@ -34,9 +36,8 @@ const TitleWrapper = styled.div`
   height: 100%;
   width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 5% 1fr;
 
   box-shadow: 0 5px 5px #d3d3d3;
 
@@ -46,7 +47,19 @@ const TitleWrapper = styled.div`
   }
 `
 
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 const LogoMS = styled(Logo)`
+  margin: 0 10px;
+`
+
+const BackLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
   margin: 0 10px;
 `
 
@@ -58,17 +71,32 @@ const ContentWrapper = styled.div`
   display: flex;
 `
 
+const BackLink = styled(FiArrowLeft)`
+  cursor: pointer;
+  &:hover {
+    color: #ffee35;
+  }
+`
+
 const Root = () => {
+  const history = useHistory()
+  const location = useLocation()
+  console.log(history)
   return (
     <AppGrid>
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
       <TitleWrapper>
-        <LogoMS />
-        <span>
-          Simulador <b>SPC Dados</b>
-        </span>
+        <BackLinkWrapper>
+          {location.pathname !== '/profile' && <BackLink onClick={() => history.goBack()} />}
+        </BackLinkWrapper>
+        <LogoWrapper>
+          <LogoMS />
+          <span>
+            Simulador <b>SPC Dados</b>
+          </span>
+        </LogoWrapper>
       </TitleWrapper>
       <ContentWrapper>
         <Switch>

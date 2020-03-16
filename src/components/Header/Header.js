@@ -50,7 +50,7 @@ const Header = () => {
       <LogoWrapper>
         <Logo onClick={() => history.replace('/')} />
       </LogoWrapper>
-      <HeaderContentWrapper></HeaderContentWrapper>
+      <HeaderContentWrapper />
     </HeaderWrapper>
   )
 }

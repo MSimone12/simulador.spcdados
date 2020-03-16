@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
+import { FiUsers } from 'react-icons/fi'
+import { FaRegBuilding } from 'react-icons/fa'
+
 import Panel from '../../components/Panel'
 
 const ProfileWrapper = styled.div`
@@ -40,6 +43,14 @@ const PanelTitle = styled.span`
   font-size: 40px;
 `
 
+const UsersIcon = styled(FiUsers)`
+  margin-right: 10px;
+`
+
+const Building = styled(FaRegBuilding)`
+  margin-right: 10px;
+`
+
 const Profile = () => {
   const history = useHistory()
 
@@ -47,12 +58,18 @@ const Profile = () => {
     <ProfileWrapper>
       <ProfileInnerWrapper>
         <ProfilePanel onClick={() => history.push('/pf')}>
-          <PanelTitle>Pessoa Física</PanelTitle>
+          <PanelTitle>
+            <UsersIcon />
+            Pessoa Física
+          </PanelTitle>
         </ProfilePanel>
       </ProfileInnerWrapper>
       <ProfileInnerWrapper>
         <ProfilePanel onClick={() => history.push('/pj')}>
-          <PanelTitle>Pessoa Jurídica</PanelTitle>
+          <PanelTitle>
+            <Building />
+            Pessoa Jurídica
+          </PanelTitle>
         </ProfilePanel>
       </ProfileInnerWrapper>
     </ProfileWrapper>
