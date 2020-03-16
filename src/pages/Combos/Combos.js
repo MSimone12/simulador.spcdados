@@ -11,7 +11,6 @@ import { format } from '../../constants/attributes'
 const ComboWrapper = styled.div`
   display: grid;
   grid-template-rows: 50px 1fr;
-  grid-gap: 3px;
   width: 100%;
   height: 100%;
 `
@@ -31,10 +30,6 @@ const CombosWrapper = styled.div`
 
   overflow: scroll;
 
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
   @media screen and (max-width: 425px) {
     flex-direction: column;
     align-items: center;
@@ -43,26 +38,24 @@ const CombosWrapper = styled.div`
 
 const ComboPanel = styled(Panel)`
   margin: 15px;
-  height: 100%;
-  min-width: 300px;
+  height: 90%;
+  min-width: 270px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 1fr 10%;
   transition: all 0.1s ease-in-out;
   &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 5px 10px 10px rgba(17, 7, 7, 0.04);
+    transform: scale(1.01);
   }
 `
 
 const ComboTitle = styled.span`
   font-weight: 200;
-  font-size: 25px;
+  font-size: 23px;
 `
 
 const ComboListWrapper = styled.div`
   height: 100%;
-  padding: 10px 0 0 0;
   display: flex;
   flex-direction: column;
 `
@@ -71,7 +64,7 @@ const ComboList = styled.ul`
   list-style: none;
 
   & > li {
-    font-size: 20px;
+    font-size: 18px;
   }
 `
 
@@ -88,6 +81,7 @@ const ComboLinkWrapper = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 `
 
 const ComboLink = styled.div`

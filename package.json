@@ -1,6 +1,11 @@
 {
   "name": "simulador.spcdados",
   "version": "0.1.0",
+  "author": {
+    "name": "Matheus de Oliveira Simone",
+    "email": "matheusosimone@hotmail.com",
+    "url": "https://github.com/MSimone12"
+  },
   "private": true,
   "dependencies": {
     "@svgr/parcel-plugin-svgr": "^5.2.0",
@@ -52,6 +57,7 @@
     "electron-builder": "^22.4.0"
   },
   "build": {
+    "icon": "./public/logoSPC.png",
     "appId": "spc.brasil.simulador.spcdados",
     "productName": "Simulador SPC Dados",
     "win": {
@@ -61,7 +67,7 @@
       ]
     },
     "directories": {
-      "buildResources": "public"
+      "buildResources": "public/**.png"
     }
   }
 }

@@ -12,6 +12,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 768,
     width: 1024,
+    icon: path.join(__dirname, '../src/assets/logoSPCsquare.png'),
     webPreferences: { nodeIntegration: true }
   })
 

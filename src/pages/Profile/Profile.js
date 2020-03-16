@@ -29,7 +29,7 @@ const ProfileInnerWrapper = styled.div`
 
 const ProfilePanel = styled(Panel)`
   justify-content: center;
-  padding: 10% 30px;
+  padding: 10% 0;
   cursor: pointer;
   transition: all 0.1s ease;
   &:hover {
