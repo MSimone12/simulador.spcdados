@@ -18,7 +18,7 @@ const AppGrid = styled.div`
   grid-template-areas: 'header' 'title' 'content';
   grid-gap: 5px;
   height: 100vh;
-  overflow: hidden;
+  width: 100%;
 `
 
 const HeaderWrapper = styled.div`
@@ -67,8 +67,6 @@ const ContentWrapper = styled.div`
   grid-area: content;
   height: 100%;
   width: 100%;
-
-  display: flex;
 `
 
 const BackLink = styled(FiArrowLeft)`
@@ -81,7 +79,6 @@ const BackLink = styled(FiArrowLeft)`
 const Root = () => {
   const history = useHistory()
   const location = useLocation()
-  console.log(history)
   return (
     <AppGrid>
       <HeaderWrapper>

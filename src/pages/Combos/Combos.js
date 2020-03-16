@@ -25,12 +25,11 @@ const ComboTitleWrapper = styled.div`
 
 const CombosWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
 
   width: 100%;
+  height: 100%;
 
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: scroll;
 
   ::-webkit-scrollbar {
     display: none;
@@ -45,6 +44,7 @@ const CombosWrapper = styled.div`
 const ComboPanel = styled(Panel)`
   margin: 15px;
   height: 100%;
+  min-width: 300px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 1fr 10%;
@@ -57,7 +57,7 @@ const ComboPanel = styled(Panel)`
 
 const ComboTitle = styled.span`
   font-weight: 200;
-  font-size: 30px;
+  font-size: 25px;
 `
 
 const ComboListWrapper = styled.div`
@@ -71,7 +71,7 @@ const ComboList = styled.ul`
   list-style: none;
 
   & > li {
-    font-size: 25px;
+    font-size: 20px;
   }
 `
 
@@ -80,12 +80,13 @@ const ComboInnerWrapper = styled.div`
   justify-content: center;
   width: 100%;
   max-height: 80%;
+  position: relative;
+  left: 0;
 `
 
 const ComboLinkWrapper = styled.div`
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
 `
 
@@ -112,8 +113,8 @@ const Combos = ({ combos, children }) => {
         <ComboTitle>{children}</ComboTitle>
       </ComboTitleWrapper>
       <CombosWrapper>
-        {combos.map(combo => (
-          <ComboInnerWrapper>
+        {combos.map((combo, i) => (
+          <ComboInnerWrapper key={i}>
             <ComboPanel>
               <ComboInnerWrapper>
                 <ComboTitle>
@@ -122,10 +123,10 @@ const Combos = ({ combos, children }) => {
               </ComboInnerWrapper>
               <ComboListWrapper>
                 <ComboList>
-                  {combo.attributes.map(attr => (
-                    <li>{`${format.pf(attr.name)}${
-                      attr.quantity ? ` [${attr.quantity}]` : ''
-                    }`}</li>
+                  {combo.attributes.map((attr, i) => (
+                    <li key={i}>
+                      {`${format.pf(attr.name)}${attr.quantity ? ` [${attr.quantity}]` : ''}`}
+                    </li>
                   ))}
                 </ComboList>
               </ComboListWrapper>
