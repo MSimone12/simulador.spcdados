@@ -48,6 +48,14 @@ const TitleWrapper = styled.div`
     font-size: 35px;
     font-weight: 300;
   }
+
+  @media screen and (max-width: 425px) {
+    > * {
+      font-size: 25px;
+    }
+
+    grid-template-columns: 15% 1fr;
+  }
 `
 
 const LogoWrapper = styled.div`
@@ -63,14 +71,14 @@ const LogoMS = styled(Logo)`
 const BackLinkWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 10px;
 `
 
 const ContentWrapper = styled.div`
   grid-area: content;
   height: 100%;
+  max-width: 100vw;
   width: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
 `
 
 const BackLink = styled(FiArrowLeft)`

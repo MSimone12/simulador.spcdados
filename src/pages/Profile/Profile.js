@@ -10,9 +10,8 @@ import Panel from '../../components/Panel'
 const ProfileWrapper = styled.div`
   display: flex;
   width: 100%;
-  padding: 0 20px;
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
@@ -24,7 +23,6 @@ const ProfileInnerWrapper = styled.div`
   justify-content: center;
   width: 100%;
   max-height: 70%;
-  padding: 25px;
 `
 
 const ProfilePanel = styled(Panel)`

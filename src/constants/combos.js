@@ -3,74 +3,76 @@ export default {
     basic: {
       url: '/pf/basic',
       title: 'Básico',
-      max: 9,
+      max: 8,
       value: 30,
       attributes: [
-        { name: 'cpf' },
-        { name: 'name' },
-        { name: 'address' },
-        { name: 'birthDate' },
-        { name: 'gender' },
-        { name: 'email' },
-        { name: 'phoneNumber' },
-        { name: 'cellPhoneNumber' }
+        'cpf',
+        'name',
+        'address',
+        'birthDate',
+        'gender',
+        'email',
+        'phoneNumber1',
+        'cellPhoneNumber1'
       ]
     },
     intermediate: {
       url: '/pf/intermediate',
       title: 'Intermediário',
-      max: 12,
+      max: 11,
       value: 80,
       attributes: [
-        { name: 'cpf' },
-        { name: 'name' },
-        { name: 'address' },
-        { name: 'birthDate' },
-        { name: 'gender' },
-        { name: 'email' },
-        { name: 'phoneNumber', quantity: 2 },
-        { name: 'cellPhoneNumber', quantity: 2 },
-        { name: 'presumedRevenue' },
-        { name: 'car' }
+        'cpf',
+        'name',
+        'address',
+        'birthDate',
+        'gender',
+        'email',
+        'phoneNumber1',
+        'phoneNumber2',
+        'cellPhoneNumber1',
+        'cellPhoneNumber2',
+        'presumedRevenue'
       ]
     },
     complete: {
       url: '/pf/complete',
       title: 'Completo',
-      max: 14,
+      max: 12,
       value: 100,
       attributes: [
-        { name: 'cpf' },
-        { name: 'name' },
-        { name: 'address' },
-        { name: 'birthDate' },
-        { name: 'gender' },
-        { name: 'email' },
-        { name: 'phoneNumber', quantity: 2 },
-        { name: 'cellPhoneNumber', quantity: 2 },
-        { name: 'presumedRevenue' },
-        { name: 'car' },
-        { name: 'restriction' }
+        'cpf',
+        'name',
+        'address',
+        'birthDate',
+        'gender',
+        'email',
+        'phoneNumber1',
+        'phoneNumber2',
+        'cellPhoneNumber1',
+        'cellPhoneNumber2',
+        'presumedRevenue',
+        'restriction'
       ]
     },
     master: {
       url: '/pf/master',
       title: 'Master',
-      max: 15,
+      max: 12,
       value: 150,
       attributes: [
-        { name: 'cpf' },
-        { name: 'name' },
-        { name: 'address' },
-        { name: 'birthDate' },
-        { name: 'gender' },
-        { name: 'email' },
-        { name: 'phoneNumber', quantity: 2 },
-        { name: 'cellPhoneNumber', quantity: 2 },
-        { name: 'presumedRevenue' },
-        { name: 'car' },
-        { name: 'death' },
-        { name: 'restriction', quantity: 2 }
+        'cpf',
+        'name',
+        'address',
+        'birthDate',
+        'gender',
+        'email',
+        'phoneNumber1',
+        'phoneNumber2',
+        'cellPhoneNumber1',
+        'cellPhoneNumber2',
+        'presumedRevenue',
+        'restrictionTwoBureaux'
       ]
     }
   },
@@ -81,15 +83,15 @@ export default {
       max: 9,
       value: 30,
       attributes: [
-        { name: 'cnpj' },
-        { name: 'companyName' },
-        { name: 'companyFancyName' },
-        { name: 'openingDate' },
-        { name: 'address' },
-        { name: 'email' },
-        { name: 'phoneNumber' },
-        { name: 'cellPhoneNumber' },
-        { name: 'cnae' }
+        'cnpj',
+        'companyName',
+        'companyFancyName',
+        'openingDate',
+        'address',
+        'email',
+        'phoneNumber',
+        'cellPhoneNumber',
+        'cnae'
       ]
     },
     intermediate: {
@@ -98,16 +100,18 @@ export default {
       max: 12,
       value: 95,
       attributes: [
-        { name: 'cnpj' },
-        { name: 'companyName' },
-        { name: 'companyFancyName' },
-        { name: 'openingDate' },
-        { name: 'address' },
-        { name: 'email' },
-        { name: 'phoneNumber', quantity: 2 },
-        { name: 'cellPhoneNumber', quantity: 2 },
-        { name: 'corporateControl' },
-        { name: 'cnae' }
+        'cnpj',
+        'companyName',
+        'companyFancyName',
+        'openingDate',
+        'address',
+        'email',
+        'phoneNumber1',
+        'phoneNumber2',
+        'cellPhoneNumber1',
+        'cellPhoneNumber2',
+        'corporateControl',
+        'cnae'
       ]
     },
     complete: {
@@ -116,16 +120,18 @@ export default {
       max: 12,
       value: 115,
       attributes: [
-        { name: 'cnpj' },
-        { name: 'companyName' },
-        { name: 'companyFancyName' },
-        { name: 'openingDate' },
-        { name: 'address' },
-        { name: 'email' },
-        { name: 'phoneNumber', quantity: 2 },
-        { name: 'cellPhoneNumber', quantity: 2 },
-        { name: 'cnae' },
-        { name: 'restriction' }
+        'cnpj',
+        'companyName',
+        'companyFancyName',
+        'openingDate',
+        'address',
+        'email',
+        'phoneNumber1',
+        'phoneNumber2',
+        'cellPhoneNumber1',
+        'cellPhoneNumber2',
+        'cnae',
+        'restriction'
       ]
     },
     master: {
@@ -134,18 +140,20 @@ export default {
       max: 15,
       value: 740,
       attributes: [
-        { name: 'cnpj' },
-        { name: 'companyName' },
-        { name: 'companyFancyName' },
-        { name: 'openingDate' },
-        { name: 'address' },
-        { name: 'email' },
-        { name: 'phoneNumber', quantity: 2 },
-        { name: 'cellPhoneNumber', quantity: 2 },
-        { name: 'corporateControl' },
-        { name: 'cnae' },
-        { name: 'presumedBilling' },
-        { name: 'restriction', quantity: 2 }
+        'cnpj',
+        'companyName',
+        'companyFancyName',
+        'openingDate',
+        'address',
+        'email',
+        'phoneNumber1',
+        'phoneNumber2',
+        'cellPhoneNumber1',
+        'cellPhoneNumber2',
+        'corporateControl',
+        'cnae',
+        'presumedBilling',
+        'restrictionTwoBureaux'
       ]
     }
   }

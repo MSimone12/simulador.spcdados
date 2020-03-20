@@ -121,9 +121,7 @@ const Combos = ({ combos, children }) => {
               <ComboListWrapper>
                 <ComboList>
                   {combo.attributes.map((attr, i) => (
-                    <li key={i}>
-                      {`${format(attr.name)}${attr.quantity ? ` (${attr.quantity})` : ''}`}
-                    </li>
+                    <li key={i}>{format(attr)}</li>
                   ))}
                 </ComboList>
               </ComboListWrapper>
