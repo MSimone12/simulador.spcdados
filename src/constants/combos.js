@@ -4,7 +4,7 @@ export default {
       url: '/pf/basic',
       title: 'Básico',
       max: 8,
-      value: 30,
+      value: 16,
       attributes: [
         'cpf',
         'name',
@@ -20,7 +20,7 @@ export default {
       url: '/pf/intermediate',
       title: 'Intermediário',
       max: 11,
-      value: 80,
+      value: 75,
       attributes: [
         'cpf',
         'name',
@@ -39,7 +39,7 @@ export default {
       url: '/pf/complete',
       title: 'Completo',
       max: 12,
-      value: 100,
+      value: 98,
       attributes: [
         'cpf',
         'name',
@@ -59,7 +59,7 @@ export default {
       url: '/pf/master',
       title: 'Master',
       max: 12,
-      value: 150,
+      value: 189,
       attributes: [
         'cpf',
         'name',
@@ -81,7 +81,7 @@ export default {
       url: '/pj/basic',
       title: 'Básico',
       max: 9,
-      value: 30,
+      value: 18,
       attributes: [
         'cnpj',
         'companyName',
@@ -98,7 +98,7 @@ export default {
       url: '/pj/intermediate',
       title: 'Intermediário',
       max: 12,
-      value: 95,
+      value: 45,
       attributes: [
         'cnpj',
         'companyName',
@@ -118,7 +118,7 @@ export default {
       url: '/pj/complete',
       title: 'Completo',
       max: 12,
-      value: 115,
+      value: 95,
       attributes: [
         'cnpj',
         'companyName',
@@ -138,7 +138,7 @@ export default {
       url: '/pj/master',
       title: 'Master',
       max: 15,
-      value: 740,
+      value: 734,
       attributes: [
         'cnpj',
         'companyName',

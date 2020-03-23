@@ -8,6 +8,7 @@ import attributes, { format } from '../../constants/attributes'
 import { formatCurrency } from '../../utils'
 import ComboCheckbox from './ComboCheckbox'
 import Modal from '../../components/Modal'
+import { calculateDiscount } from '../../constants/values'
 
 const DetailsGrid = styled.div`
   height: 100%;
@@ -17,6 +18,8 @@ const DetailsGrid = styled.div`
   grid-template-areas:
     'header header'
     'content content';
+  overflow-y: scroll;
+  overflow-x: hidden;
 `
 
 const BaseButton = styled.button`
@@ -98,8 +101,6 @@ const ComboWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-
-  overflow-y: scroll;
 `
 
 const ComboTitle = styled.span`
@@ -143,11 +144,18 @@ const ComboDetails = () => {
 
   const initialFamilyDisabled = Object.values(families).map(family => family.name)
 
-  const [totalValue] = useState(combo.value)
+  const [quantity, setQuantity] = useState(1)
+
+  const [totalValue, setTotalValue] = useState(
+    initialAttributes.reduce((acc, attr) => calculateDiscount(attr, quantity), 0)
+  )
   const [selectedAttrs, setSelectedAttrs] = useState(initialAttributes)
 
   const [familyDisabled, setFamilyDisabled] = useState(initialFamilyDisabled)
   const [addingAtributeDisabled, setAddingAtributeDisabled] = useState(false)
+
+  const totalValueCalculator = (array, qtd) =>
+    array.reduce((acc, attr) => acc + calculateDiscount(attr, qtd), 0)
 
   useEffect(() => {
     if (addingAtributeDisabled) {
@@ -161,17 +169,34 @@ const ComboDetails = () => {
     if (selectedAttrs.length === combo.max) {
       setAddingAtributeDisabled(false)
     }
-  }, [selectedAttrs]) // eslint-disable-line
+    setTotalValue(totalValueCalculator(selectedAttrs, quantity))
+  }, [selectedAttrs, quantity]) // eslint-disable-line
 
   const comboDisabled = !addingAtributeDisabled && selectedAttrs.length === combo.max
 
   const renderFamilies = family => {
-    const isDisabled =
-      family.disabled ||
-      defineDisabled(
-        comboDisabled,
-        familyDisabled.some(disabled => disabled === family.name)
-      )
+    const isDisabled = defineDisabled(
+      comboDisabled,
+      familyDisabled.some(disabled => disabled === family.name)
+    )
+
+    const onFamilyCheckboxChange = e => {
+      if (e.target.checked) {
+        if (!comboDisabled) {
+          setSelectedAttrs(old =>
+            [...old].concat(
+              family.attributes
+                .filter(({ value }) => !selectedAttrs.includes(value))
+                .map(({ value }) => value)
+            )
+          )
+        }
+      } else {
+        setSelectedAttrs(old =>
+          [...old].filter(attr => !family.attributes.some(({ value }) => value === attr))
+        )
+      }
+    }
 
     const onCheckboxChange = e => {
       const attrName = e.target.value
@@ -184,12 +209,32 @@ const ComboDetails = () => {
       }
     }
 
+    const onRadioButtonChange = e => {
+      const value = e.target.value
+
+      const hasAttr = selectedAttrs.some(attr =>
+        family.attributes.some(familyAttr => familyAttr.value === attr)
+      )
+
+      if (hasAttr) {
+        const selectedAttributes = selectedAttrs.filter(
+          attr => !family.attributes.some(familyAttr => familyAttr.value === attr)
+        )
+        setSelectedAttrs([...selectedAttributes, value])
+      } else setSelectedAttrs(old => [...old, value])
+    }
+
     return (
       <ComboCheckbox
+        key={family.name}
         family={family}
         isDisabled={isDisabled}
         onCheckboxChange={onCheckboxChange}
+        onRadioButtonChange={onRadioButtonChange}
         selectedAttrs={selectedAttrs}
+        onFamilyCheckboxChange={onFamilyCheckboxChange}
+        familyDisabled={comboDisabled}
+        inputDisabled={name => family.disabled && initialAttributes.includes(name)}
       />
     )
   }
@@ -221,11 +266,9 @@ const ComboDetails = () => {
                 Resumo - <b>{formatCurrency(totalValue)}</b>
               </ComboTitle>
               <AttrsList>
-                {selectedAttrs
-                  .filter(attr => !attr.hidden)
-                  .map(attr => (
-                    <li>{format(attr)}</li>
-                  ))}
+                {selectedAttrs.map((attr, i) => (
+                  <li key={i}>{format(attr)}</li>
+                ))}
               </AttrsList>
             </DetailsPanel>
           </ComboWrapper>

@@ -47,3 +47,5 @@ yarn-error.log*
 
 .cache
 dist/
+
+.vscode
