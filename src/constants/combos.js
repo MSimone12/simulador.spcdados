@@ -89,8 +89,8 @@ export default {
         'openingDate',
         'address',
         'email',
-        'phoneNumber',
-        'cellPhoneNumber',
+        'phoneNumber1',
+        'cellPhoneNumber1',
         'cnae'
       ]
     },
@@ -110,8 +110,8 @@ export default {
         'phoneNumber2',
         'cellPhoneNumber1',
         'cellPhoneNumber2',
-        'corporateControl',
-        'cnae'
+        'cnae',
+        'restriction'
       ]
     },
     complete: {
@@ -131,13 +131,13 @@ export default {
         'cellPhoneNumber1',
         'cellPhoneNumber2',
         'cnae',
-        'restriction'
+        'corporateControl'
       ]
     },
     master: {
       url: '/pj/master',
       title: 'Master',
-      max: 15,
+      max: 14,
       value: 734,
       attributes: [
         'cnpj',

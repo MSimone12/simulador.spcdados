@@ -29,15 +29,19 @@ const ComboCheckbox = ({
   familyDisabled,
   inputDisabled
 }) => {
+  const familyCheckboxChecked =
+    family.type === 'radio' &&
+    selectedAttrs.some(att => family.attributes.some(({ value }) => value === att))
   return (
     <>
       <ComboSubtitle>
         <InputWrapper>
           <input
             type="checkbox"
-            disabled={familyDisabled}
+            disabled={!familyCheckboxChecked || familyDisabled}
             id={family.name}
             onChange={onFamilyCheckboxChange}
+            checked={familyCheckboxChecked}
           />
           <label htmlFor={family.name}>{family.title}</label>
         </InputWrapper>

@@ -130,6 +130,8 @@ const families = {
         'companyName',
         'companyFancyName',
         'openingDate',
+        'email',
+        'address',
         'branch',
         'headquarters',
         'cnae',

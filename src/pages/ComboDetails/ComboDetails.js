@@ -5,10 +5,11 @@ import styled from 'styled-components'
 import Panel from '../../components/Panel'
 import combos from '../../constants/combos'
 import attributes, { format } from '../../constants/attributes'
-import { formatCurrency } from '../../utils'
+import { formatCurrency, generateNumberMask } from '../../utils'
 import ComboCheckbox from './ComboCheckbox'
 import Modal from '../../components/Modal'
 import { calculateDiscount } from '../../constants/values'
+import InputField from '../../components/InputField'
 
 const DetailsGrid = styled.div`
   height: 100%;
@@ -51,22 +52,25 @@ const DangerButton = styled(BaseButton)`
 `
 
 const SuccessButton = styled(BaseButton)`
-  border: 1px solid green;
-  background-color: green;
+  border: 1px solid #5cb85c;
+  background-color: #5cb85c;
+  margin: 60px 10px 0;
 
   &:hover {
-    background-color: rgba(0, 255, 0, 0.7);
-    border-color: rgba(0, 255, 0, 0.7);
+    background-color: #449d44;
+    border-color: #449d44;
   }
 `
 
 const InfoButton = styled(BaseButton)`
-  border: 1px solid blue;
-  background-color: blue;
+  border: 1px solid #5bc0de;
+  background-color: #5bc0de;
+
+  margin: 60px 10px 0;
 
   &:hover {
-    background-color: rgba(0, 0, 255, 0.7);
-    border-color: rgba(0, 0, 255, 0.7);
+    background-color: #31b0d5;
+    border-color: #31b0d5;
   }
 `
 
@@ -233,7 +237,7 @@ const ComboDetails = () => {
         onRadioButtonChange={onRadioButtonChange}
         selectedAttrs={selectedAttrs}
         onFamilyCheckboxChange={onFamilyCheckboxChange}
-        familyDisabled={comboDisabled}
+        familyDisabled={family.disabled || comboDisabled}
         inputDisabled={name => family.disabled && initialAttributes.includes(name)}
       />
     )
@@ -260,6 +264,14 @@ const ComboDetails = () => {
           <ComboWrapper>
             <DetailsPanel>
               <ComboTitle>Quantidade</ComboTitle>
+              <InputField
+                onChange={e => setQuantity(e.target.value.replace(/\D/g, ''))}
+                name="quantity"
+                value={quantity}
+                mask={generateNumberMask}
+                type="text"
+                label="Qtd de linhas"
+              />
             </DetailsPanel>
             <DetailsPanel>
               <ComboTitle>
@@ -275,7 +287,7 @@ const ComboDetails = () => {
         </ContentWrapper>
       </DetailsGrid>
       <Modal show={show} title="Atenção!" onClose={() => setShow(false)}>
-        <h2>Os atributos adicionais, terão sua cobrança à parte!</h2>
+        <h2>Os atributos adicionais terão sua cobrança à parte!</h2>
         <ButtonRow>
           <InfoButton onClick={() => setShow(false)}>Voltar</InfoButton>
           <SuccessButton

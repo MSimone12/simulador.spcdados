@@ -318,7 +318,6 @@ const values = {
 export const calculateDiscount = (attribute, quantity) => {
   const { value, discount } = values[attribute]
   const totalValue = discount ? value - value * discount(quantity) : value
-  console.log(totalValue, attribute)
   return totalValue
 }
 
