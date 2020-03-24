@@ -1,4 +1,4 @@
-const pf = {
+export const pf = {
   cpf: 'CPF',
   name: 'Nome',
   address: 'Endereço',
@@ -33,7 +33,7 @@ const pf = {
   restrictionTwoBureaux: 'Restrição 2 bureaus'
 }
 
-const pj = {
+export const pj = {
   cnpj: 'CNPJ',
   companyName: 'Razão Social',
   companyFancyName: 'Nome Fantasia',
@@ -60,7 +60,7 @@ const pj = {
   restrictionTwoBureaux: 'Restrição 2 bureaus'
 }
 
-const strings = {
+export const strings = {
   ...pf,
   ...pj
 }
@@ -78,7 +78,7 @@ const phonesSection = [
   'cellPhoneNumber5'
 ]
 
-const families = {
+export const families = {
   pf: {
     registrationData: {
       type: 'checkbox',
@@ -157,12 +157,14 @@ const families = {
   }
 }
 
-const format = string => strings[string]
+export const format = string => strings[string]
 
-module.exports = {
+const attributes = {
   pf,
   pj,
   strings,
   families,
   format
 }
+
+export default attributes
