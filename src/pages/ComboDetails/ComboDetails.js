@@ -287,7 +287,7 @@ const ComboDetails = () => {
         </ContentWrapper>
       </DetailsGrid>
       <Modal show={show} title="Atenção!" onClose={() => setShow(false)}>
-        <h2>Os atributos adicionaisnx terão sua cobrança à parte!</h2>
+        <h2>Os atributos adicionais terão sua cobrança à parte!</h2>
         <ButtonRow>
           <InfoButton onClick={() => setShow(false)}>Voltar</InfoButton>
           <SuccessButton
