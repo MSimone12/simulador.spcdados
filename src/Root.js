@@ -113,7 +113,7 @@ const Root = () => {
           <Route exact path={routes.PF} component={PF} />
           <Route exact path={routes.PJ} component={PJ} />
           <Route path={routes.COMBO_DETAILS} component={ComboDetails} />
-          <Redirect from="*" to="/profile" />
+          <Redirect from="*" to={routes.PROFILE} />
         </Switch>
       </ContentWrapper>
     </AppGrid>

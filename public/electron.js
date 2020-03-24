@@ -6,9 +6,11 @@ const path = require('path')
 const url = require('url')
 const isDev = require('electron-is-dev')
 
+const isOnline = require('is-online')
+
 let mainWindow
 
-function createWindow() {
+async function createWindow() {
   const { height, width } = electron.screen.getPrimaryDisplay().workAreaSize
   mainWindow = new BrowserWindow({
     width,
@@ -19,15 +21,22 @@ function createWindow() {
 
   if (isDev) mainWindow.webContents.openDevTools()
 
-  mainWindow.loadURL(
-    isDev
-      ? 'http://localhost:3000'
-      : url.format({
-          pathname: path.join(__dirname, '../build/index.html'),
-          protocol: 'file:',
-          slashes: true
-        })
-  )
+  const activeUrl = 'https://simulador-spcdados.herokuapp.com'
+
+  const offlineUrl = url.format({
+    pathname: path.join(__dirname, '../build/index.html'),
+    protocol: 'file:',
+    slashes: true
+  })
+
+  const mainUrl = await isOnline().then(online => {
+    if (online) {
+      return isDev ? 'http://localhost:3000' : activeUrl
+    }
+    return offlineUrl
+  })
+
+  await mainWindow.loadURL(mainUrl)
   mainWindow.on('closed', () => (mainWindow = null))
 }
 

@@ -8,7 +8,6 @@
   },
   "private": true,
   "dependencies": {
-    "@svgr/parcel-plugin-svgr": "^5.2.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -31,7 +30,7 @@
     "electron-start": "node src/start-react",
     "react-start": "BROWSER=none react-scripts start",
     "pack": "electron-builder --dir",
-    "dist": "yarn clean && yarn build && electron-builder -w",
+    "dist": "yarn clean && yarn build && electron-builder -w  -p always",
     "postinstall": "electron-builder install-app-deps",
     "clean": "rm -rf dist/ build/"
   },
@@ -63,8 +62,13 @@
     "productName": "Simulador SPC Dados",
     "win": {
       "artifactName": "${productName}.${ext}",
-      "target": [
-        "portable"
+      "target": "portable",
+      "publish": [
+        {
+          "provider": "github",
+          "token": "61ba29d7e0c3c04af9fafa504ca85c309eae3c04",
+          "releaseType": "release"
+        }
       ]
     },
     "directories": {
