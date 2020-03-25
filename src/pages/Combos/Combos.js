@@ -38,17 +38,14 @@ const CombosWrapper = styled.div`
 
 const ComboPanel = styled(Panel)`
   margin: 5px 15px 0;
-  padding: 15px 0;
+  padding: 10px 0;
   height: 100%;
   min-width: 270px;
-  min-height: 480px;
+  min-height: 430px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 1fr 10%;
   transition: all 0.1s ease-in-out;
-  &:hover {
-    transform: scale(1.01);
-  }
 `
 
 const ComboTitle = styled.span`
@@ -66,8 +63,8 @@ const ComboList = styled.ul`
   list-style: none;
 
   & > li {
-    font-size: 18px;
-    margin: 5px 0 0;
+    font-size: 14px;
+    margin: 3px 0 0;
   }
 `
 
@@ -84,7 +81,7 @@ const ComboLinkWrapper = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 `
 
 const ComboLink = styled.div`
