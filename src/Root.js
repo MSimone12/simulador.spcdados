@@ -98,7 +98,7 @@ const Root = () => {
       </HeaderWrapper>
       <TitleWrapper>
         <BackLinkWrapper>
-          {location.pathname !== '/profile' && <BackLink onClick={() => history.goBack()} />}
+          {location.pathname !== routes.PROFILE && <BackLink onClick={() => history.goBack()} />}
         </BackLinkWrapper>
         <LogoWrapper>
           <LogoMS />
