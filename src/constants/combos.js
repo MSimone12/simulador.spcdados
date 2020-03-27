@@ -1,7 +1,9 @@
+import routes from './routes'
+
 export default {
   pf: {
     basic: {
-      url: '/pf/basic',
+      url: `${routes.COMBO}/pf/basic`,
       title: 'Básico',
       max: 8,
       value: 16,
@@ -17,7 +19,7 @@ export default {
       ]
     },
     intermediate: {
-      url: '/pf/intermediate',
+      url: `${routes.COMBO}/pf/intermediate`,
       title: 'Intermediário',
       max: 11,
       value: 75,
@@ -36,7 +38,7 @@ export default {
       ]
     },
     complete: {
-      url: '/pf/complete',
+      url: `${routes.COMBO}/pf/complete`,
       title: 'Completo',
       max: 12,
       value: 98,
@@ -56,7 +58,7 @@ export default {
       ]
     },
     master: {
-      url: '/pf/master',
+      url: `${routes.COMBO}/pf/master`,
       title: 'Master',
       max: 12,
       value: 189,
@@ -78,7 +80,7 @@ export default {
   },
   pj: {
     basic: {
-      url: '/pj/basic',
+      url: `${routes.COMBO}/pj/basic`,
       title: 'Básico',
       max: 9,
       value: 18,
@@ -95,7 +97,7 @@ export default {
       ]
     },
     intermediate: {
-      url: '/pj/intermediate',
+      url: `${routes.COMBO}/pj/intermediate`,
       title: 'Intermediário',
       max: 12,
       value: 45,
@@ -115,7 +117,7 @@ export default {
       ]
     },
     complete: {
-      url: '/pj/complete',
+      url: `${routes.COMBO}/pj/complete`,
       title: 'Completo',
       max: 12,
       value: 95,
@@ -135,7 +137,7 @@ export default {
       ]
     },
     master: {
-      url: '/pj/master',
+      url: `${routes.COMBO}/pj/master`,
       title: 'Master',
       max: 14,
       value: 734,

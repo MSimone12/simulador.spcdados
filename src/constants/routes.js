@@ -2,5 +2,6 @@ export default {
   PROFILE: '/profile',
   PF: '/pf',
   PJ: '/pj',
-  COMBO_DETAILS: '/:type/:combo'
+  COMBO: '/combo',
+  COMBO_DETAILS: '/combo/:type/:combo'
 }

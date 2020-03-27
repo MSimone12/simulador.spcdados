@@ -138,9 +138,9 @@ const defineDisabled = (combo, family) => combo || family
 const ComboDetails = () => {
   const { params } = useRouteMatch()
 
-  const [show, setShow] = useState(false)
-
   const combo = combos[params.type][params.combo]
+
+  const [show, setShow] = useState(false)
 
   const initialAttributes = combo.attributes
 

@@ -1,16 +1,11 @@
 import React from 'react'
-import { Switch, Route, Redirect, useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { FiArrowLeft } from 'react-icons/fi'
 
-import Profile from './pages/Profile'
-import PF from './pages/PF'
-import PJ from './pages/PJ'
-
 import routes from './constants/routes'
 import Header from './components/Header'
-import ComboDetails from './pages/ComboDetails'
 
 import { ReactComponent as Logo } from './assets/logoms.svg'
 
@@ -88,7 +83,7 @@ const BackLink = styled(FiArrowLeft)`
   }
 `
 
-const Root = () => {
+const Root = ({ children }) => {
   const history = useHistory()
   const location = useLocation()
   return (
@@ -107,15 +102,7 @@ const Root = () => {
           </span>
         </LogoWrapper>
       </TitleWrapper>
-      <ContentWrapper>
-        <Switch>
-          <Route path={routes.PROFILE} component={Profile} />
-          <Route exact path={routes.PF} component={PF} />
-          <Route exact path={routes.PJ} component={PJ} />
-          <Route path={routes.COMBO_DETAILS} component={ComboDetails} />
-          <Redirect from="*" to={routes.PROFILE} />
-        </Switch>
-      </ContentWrapper>
+      <ContentWrapper>{children}</ContentWrapper>
     </AppGrid>
   )
 }
