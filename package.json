@@ -68,5 +68,8 @@
     "directories": {
       "buildResources": "public/**.png"
     }
+  },
+  "engines": {
+    "node": "10.16.3"
   }
 }
